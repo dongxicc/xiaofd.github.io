@@ -1,7 +1,10 @@
 #!/bin/bash
 function bbr_install(){
 UBK_BASE=http://kernel.ubuntu.com/~kernel-ppa/mainline/
-UBK_LAST=`wget -qO- $UBK_BASE | grep -o "<a href=.*" | grep -v "\-rc" | tail -n1 | cut -d '"' -f2`
+UBK_LAST_BASE=`wget -qO- $UBK_BASE | grep -o "<a href=.*" | grep -v "\-rc" | tail -n1 | cut -d '"' -f2 | cut -d '/' -f1`
+UBK_LAST_FIND=`wget -qO- $UBK_BASE | grep -o "<a href=.*" | grep -v "\-rc" | grep -o "$UBK_LAST_BASE../\"" | tail -n1 | cut -d '"' -f1`
+UBK_LAST=$UBK_LAST_BASE
+[[ -n $UBK_LAST_FIND ]] && UBK_LAST=$UBK_LAST_FIND
 echo $UBK_LAST
 UBK_ARCH="amd64"
 UBK_DOWN=`wget -qO- $UBK_BASE$UBK_LAST | grep -o ">linux-image.*\.deb" | grep -o "linux-image.*\.deb" | grep generic | grep $UBK_ARCH | head -n1`
