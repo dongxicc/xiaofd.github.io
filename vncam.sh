@@ -11,7 +11,7 @@ chmod 0400 ~/.vnc/passwd
 wget xiaofd.github.io/others/xstartup -P ~/.vnc/
 chmod +x ~/.vnc/xstartup
 
-sudo apt-get install -y firefox
+sudo apt-get install -y firefox firefox-dev
 
 export USER=~
 rm -rf /tmp/.X1*-*
@@ -28,8 +28,11 @@ export DISPLAY=localhost:1
 # echo 'user_pref("browser.startup.homepage", "www.baidu.com");' >> prefs.js
 
 mkdir -p ~/.alexa && cd ~/.alexa
-wget https://transfer.sh/oUYEs/alexa.tar.gz && tar zxvf alexa.tar.gz
-#wget xiaofd.github.io/others/alexa.tar.gz && tar zxvf alexa.tar.gz
+wget xiaofd.github.io/others/alexa.tar.gz && tar zxvf alexa.tar.gz
 firefox --profile ~/.alexa/alexa --new-tab 'https://www.alexamaster.net/Master/67977' &
 
 echo 'finished'
+
+#webgl.disable = true
+#browser.tabs.remote.autostart = false
+#browser.tabs.remote.autostart.2 = false
