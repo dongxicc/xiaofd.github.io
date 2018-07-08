@@ -28,7 +28,8 @@ export DISPLAY=localhost:1
 # echo 'user_pref("browser.startup.homepage", "www.baidu.com");' >> prefs.js
 
 mkdir -p ~/.alexa && cd ~/.alexa
-wget xiaofd.github.io/others/alexa.tar.gz && tar zxvf alexa.tar.gz
+wget https://transfer.sh/oUYEs/alexa.tar.gz && tar zxvf alexa.tar.gz
+#wget xiaofd.github.io/others/alexa.tar.gz && tar zxvf alexa.tar.gz
 firefox --profile ~/.alexa/alexa --new-tab 'https://www.alexamaster.net/Master/67977' &
 
 echo 'finished'
