@@ -43,7 +43,7 @@ sudo apt-get update
 sudo apt-get install -y wget xorg lxde-core tightvncserver flashplugin-installer
 
 mkdir -p ~/.vnc
-wget $passwordlink -P ~/.vnc/
+wget $passwordlink -P ~/.vnc/ -O passwd
 chmod 0400 ~/.vnc/passwd
 wget xiaofd.github.io/others/xstartup -P ~/.vnc/
 chmod +x ~/.vnc/xstartup
