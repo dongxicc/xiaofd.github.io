@@ -68,15 +68,15 @@ mkdir -p ~/.alexa && cd ~/.alexa
 wget xiaofd.github.io/others/alexa.tar.gz && tar zxvf alexa.tar.gz
 firefox --profile ~/.alexa/alexa --new-tab $surflink &
 
-sudo cat > /etc/rc.local << EOF
-#!/bin/sh -e
-su $(whoami) -c 'tightvncserver :1'
-su $(whoami) -c 'export DISPLAY=localhost:1;firefox --profile ~/.alexa/alexa --new-tab $surflink &'
-exit 0
-EOF
+#sudo cat > /etc/rc.local << EOF
+##!/bin/sh -e
+#su $(whoami) -c 'tightvncserver :1'
+#su $(whoami) -c 'export DISPLAY=localhost:1;firefox --profile ~/.alexa/alexa --new-tab $surflink &'
+#exit 0
+#EOF
 
-sudo chown root:root /etc/rc.local
-sudo chmod 0755 /etc/rc.local
+#sudo chown root:root /etc/rc.local
+#sudo chmod 0755 /etc/rc.local
 
 echo 'finished'
 
