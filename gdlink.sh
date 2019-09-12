@@ -1,4 +1,9 @@
 #!/bin/bash
+# wget --no-check-certificate -qO /usr/local/bin/gdlink 'https://www.moerats.com/usr/shell/gdlink.sh' && chmod a+x /usr/local/bin/gdlink
+# gdlink 'https://drive.google.com/open?id=0B8SvBXZ3I5QMcUduTMJEanRkMzQ'
+# gdlink '0B8SvBXZ3I5QMcUduTMJEanRkMzQ'
+# gdlink 'https://drive.google.com/open?id=0B8SvBXZ3I5QMcUduTMJEanRkMzQ' |xargs -n1 wget -c -O ./xxx
+# bash DebianNET.sh -dd "$(echo "https://drive.google.com/open?id=0B8SvBXZ3I5QMcUduTMJEanRkMzQ" |xargs -n1 bash <(wget --no-check-certificate -qO- 'https://moeclub.org/attachment/LinuxShell/gdlink.sh'))"
 
 FileID="$1";
 
