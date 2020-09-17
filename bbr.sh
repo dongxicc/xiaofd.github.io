@@ -7,10 +7,10 @@ UBK_LAST=$UBK_LAST_BASE
 [[ -n $UBK_LAST_FIND ]] && UBK_LAST=$UBK_LAST_FIND
 echo $UBK_LAST
 UBK_ARCH="amd64"
-UBK_DOWN=`wget -qO- $UBK_BASE$UBK_LAST | grep -o ">linux-image.*\.deb" | grep -o "linux-image.*\.deb" | grep generic | grep $UBK_ARCH | head -n1`
+UBK_DOWN=`wget -qO- $UBK_BASE$UBK_LAST | grep -o ">.*linux-image.*\.deb" | awk '{print substr($1,2)}' | grep generic | grep $UBK_ARCH | head -n1`
 if [[ $UBK_DOWN =~ "unsigned" ]];then
     echo "install kernel modules..."  
-    UBK_DOWN_MOD=`wget -qO- $UBK_BASE$UBK_LAST | grep -o ">linux-modules.*\.deb" | grep -o "linux-modules.*\.deb" | grep generic | grep $UBK_ARCH | head -n1`
+    UBK_DOWN_MOD=`wget -qO- $UBK_BASE$UBK_LAST | grep -o ">.*linux-modules.*\.deb" | awk '{print substr($1,2)}' | grep generic | grep $UBK_ARCH | head -n1`
     wget $UBK_BASE$UBK_LAST'/'$UBK_DOWN_MOD
     dpkg -i $UBK_DOWN_MOD
 fi  
