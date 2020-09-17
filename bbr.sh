@@ -12,11 +12,13 @@ if [[ $UBK_DOWN =~ "unsigned" ]];then
     echo "install kernel modules..."  
     UBK_DOWN_MOD=`wget -qO- $UBK_BASE$UBK_LAST | grep -o ">.*linux-modules.*\.deb" | awk '{print substr($1,2)}' | grep generic | grep $UBK_ARCH | head -n1`
     wget $UBK_BASE$UBK_LAST'/'$UBK_DOWN_MOD
+    UBK_DOWN_MOD=`echo $UBK_DOWN_MOD | grep -o "linux.*deb"`
     dpkg -i $UBK_DOWN_MOD
 fi  
-UBK_VER=`echo $UBK_DOWN |  cut -d "-" -f3`
+UBK_VER=`echo $UBK_DOWN |  cut -d "-" -f4`
 echo $UBK_VER
 wget $UBK_BASE$UBK_LAST'/'$UBK_DOWN
+UBK_DOWN=`echo $UBK_DOWN | grep -o "linux.*deb"`
 dpkg -i $UBK_DOWN
 # delete old kernel
 # grep -o print match pattern -v print dismatch pattern
